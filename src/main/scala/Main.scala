@@ -8,7 +8,9 @@ import spray.routing.SimpleRoutingApp
 object Main extends App with SimpleRoutingApp {
   implicit val system = ActorSystem("hello-world-system")
 
-  startServer(interface = "localhost", port = System.getenv("$PORT0").toInt) {
+  val port = args.headOption.orElse(Some("8080")).head.toInt
+
+  startServer(interface = "localhost", port = port) {
     path("hello") {
       get {
         complete {
