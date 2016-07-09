@@ -15,7 +15,7 @@ object Main extends App with SimpleRoutingApp {
     path("hello") {
       get {
         complete {
-          "hello, world!"
+          s"hello, world! running on $interface:$port"
         }
       }
     } ~
