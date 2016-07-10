@@ -14,12 +14,19 @@ repositories {
     jcenter()
 }
 
+task uberScalaJar(type: OneJar) {
+    mainClass = 'hello.scala.Main'
+    archiveName = 'hello-scala-all.jar'
+}
+
 task uberJar(type: OneJar) {
-    mainClass = 'Main'
-    archiveName = 'hello-all.jar'
+    mainClass = 'hello.java.Main'
+    archiveName = 'hello-java-all.jar'
 }
 
 dependencies {
+    compile "com.sparkjava:spark-core:2.5"
+
     compile 'org.scala-lang:scala-library:2.11.8'
 
     compile group: 'io.spray', name: 'spray-can_2.11', version: '1.3.3'
