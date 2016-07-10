@@ -19,19 +19,19 @@ object Main extends App with SimpleRoutingApp {
         }
       }
     } ~
-    path("health") {
-      get {
-        complete {
-          "ok!"
+      path("health") {
+        get {
+          complete {
+            "ok!"
+          }
+        }
+      } ~ //this is for the loader.io verify our server
+      path("loaderio-93f4cb143cf6225704731e0dfc39c59a.txt") {
+        get {
+          complete {
+            "loaderio-93f4cb143cf6225704731e0dfc39c59a"
+          }
         }
       }
-    } ~ //this is for the loader.io verify our server
-    path("loaderio-93f4cb143cf6225704731e0dfc39c59a/"){
-      get {
-        complete {
-          "loaderio-93f4cb143cf6225704731e0dfc39c59a"
-        }
-      }
-    }
   }
 }
